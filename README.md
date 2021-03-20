@@ -1,12 +1,12 @@
 # techdegree_project_6
 _________________________________________________________________
 
-Techdegree Project 6-Mineral Catalog
+Techdegree Project 8-Mineral Catalog (w/ Search)
 _________________________________________________________________
 
 Introduction
 
-This program was developed to implement skills that were learned for using Django in order to use Python on the internet. This program will allow users to view a mineral catalog. The mineral catalog is generated from details stored in a .JSON file. The minerals are displayed using templates generated in Django.
+This program was developed to implement skills that were learned for using Django in order to use Python on the internet. This program will allow users to view a mineral catalog. The mineral catalog is generated from details stored in a .JSON file. The minerals are displayed using templates generated in Django. The user will also be able to search the catalog in several ways.
 
 
 Installation
@@ -38,6 +38,10 @@ Mineral Details-A page displaying the name, photograph, and mineral details can 
 Random Mineral-The user may go to the random mineral page to view a mineral selected at random. A new mineral may be requested from that page.
 
 Routing Uses Slugs-URLs are readable. Slugs are automatically generated when a mineral is created and the slugs are used for URL routing.
+
+New for Project 8:
+
+You can now search the catalog by: search term, first letter of mineral name, mineral group, or mineral color.
 
 
 Thanks Kenneth Love, Chris Howell, Zachary Jackson, Jordan Hoover, and the rest of Team Treehouse!
