@@ -75,6 +75,7 @@
                     {% endfor %}
                   </ul>
                 </nav>
+                {% if search_term %}<p>Search results for <strong>{{ search_term }}</strong></p>{% endif %}
                 {% block content %}{% endblock %}
               </div>
             </div>

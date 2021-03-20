@@ -90,4 +90,5 @@ def search_minerals(request):
         )
     return render(request,
                   'minerals/mineral_list.html',
-                  {'minerals': minerals})
+                  {'minerals': minerals,
+                   'search_term': term})
