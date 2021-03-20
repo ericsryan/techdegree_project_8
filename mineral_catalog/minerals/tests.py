@@ -40,6 +40,7 @@ class MineralViewsTests(TestCase):
         resp = self.client.get(reverse('list'))
         self.assertEqual(resp.status_code, 200)
         self.assertIn(self.mineral, resp.context['minerals'])
+        self.assertContains(resp, self.mineral.name)
         self.assertTemplateUsed(resp, 'minerals/mineral_list.html')
         self.assertContains(resp, self.mineral.name)
 
@@ -49,6 +50,7 @@ class MineralViewsTests(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(self.mineral, resp.context['mineral'])
         self.assertTemplateUsed(resp, 'minerals/mineral_detail.html')
+        self.assertContains(resp, self.mineral.name)
 
     def test_random_mineral_view(self):
         resp = self.client.get(reverse('random'))
