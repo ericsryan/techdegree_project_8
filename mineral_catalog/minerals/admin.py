@@ -1,14 +1,9 @@
 from django.contrib import admin
 
-from .models import Mineral, Attribute
-
-
-class AttributeInline(admin.StackedInline):
-    model = Attribute
+from .models import Mineral
 
 
 class MineralAdmin(admin.ModelAdmin):
-    inlines = [AttributeInline,]
+    inlines = []
 
 admin.site.register(Mineral, MineralAdmin)
-admin.site.register(Attribute)

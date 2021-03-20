@@ -14,12 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path, re_path
+from django.urls import include, path
 from . import views
 
 urlpatterns = [
     path('', views.mineral_list, name='list'),
+    path('by-letter/<letter>/',
+         views.mineral_list_by_letter,
+         name='mineral_list_by_letter'
+    ),
+    path('by-group/<group>/',
+         views.mineral_list_by_group,
+         name='mineral_list_by_group'
+    ),
+    path('by-color/<color>/',
+         views.mineral_list_by_color,
+         name='mineral_list_by_color'
+    ),
+    path('results/',
+         views.search_minerals,
+         name='search'
+    ),
     path('random/', views.random_mineral_detail, name='random'),
     path('<slug:pk>/', views.mineral_detail, name='detail'),
-
 ]

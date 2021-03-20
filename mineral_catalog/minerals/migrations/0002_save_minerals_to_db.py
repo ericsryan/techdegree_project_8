@@ -3,7 +3,7 @@ import json
 
 from django.db import migrations
 
-from ..models import Mineral, Attribute
+from ..models import Mineral
 
 
 def save_minerals_to_db(apps, schema_editor):
@@ -12,21 +12,27 @@ def save_minerals_to_db(apps, schema_editor):
         data = json.load(mineral_file)
 
     for mineral in data:
-        for key, value in mineral.items():
-            if key == 'name':
-                mineral = Mineral.objects.create(name=value)
-            elif key == 'image caption':
-                mineral.caption = value
-                mineral.save()
-            elif key == 'image filename':
-                continue
-            else:
-                Attribute.objects.create(
-                    name=key,
-                    content=value,
-                    mineral=mineral
-                )
-
+        Mineral(
+            name = mineral.get('name', ''),
+            caption = mineral.get('image caption', ''),
+            category = mineral.get('category', ''),
+            group = mineral.get('group', ''),
+            formula = mineral.get('formula', ''),
+            strunz_classification = mineral.get('strunz classification', ''),
+            crystal_system = mineral.get('crystal system', ''),
+            mohs_scale_hardness = mineral.get('mohs scale hardness', ''),
+            luster = mineral.get('luster', ''),
+            color = mineral.get('color', ''),
+            specific_gravity = mineral.get('specific gravity', ''),
+            cleavage = mineral.get('cleavage', ''),
+            diaphaneity = mineral.get('diaphaneity', ''),
+            crystal_habit = mineral.get('crystal habit', ''),
+            streak = mineral.get('streak', ''),
+            optical_properties = mineral.get('optical properties', ''),
+            refractive_index = mineral.get('refractive index', ''),
+            unit_cell = mineral.get('unit cell', ''),
+            crystal_symmetry = mineral.get('crystal symmetry', '')
+        ).save()
 
 class Migration(migrations.Migration):
 

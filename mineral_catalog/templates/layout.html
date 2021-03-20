@@ -9,13 +9,12 @@
         <link rel="stylesheet" href="{% static 'css/global.css' %}">
         <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/global.css">
     </head>
 
     <body>
         <div class="bounds">
-            <div class="grid_100">
-                <a href="/">
+            <div class="">
+                <a href="{% url 'list' %}">
                   <svg class="logo" viewBox="0 0 127.6 84.8" preserveAspectRation="xMinYMin meet">
                     <polygon points="42.7,84.8 49.6,79.4 40,62.5 51.2,43.5 51.2,43.5 25,0 0,55.6 "/>
                     <polygon class="logo--middle" points="52.9,79.5 52.9,79.5 84.8,80.1 59.7,35 43.3,62.4 "/>
@@ -25,7 +24,60 @@
                 </a>
                 <p class="logo__text text-centered"><a href="{% url 'detail' pk='schraderite' %}">They're not rocks!</a></p>
             </div>
-            {% block content %}{% endblock %}
+            <div class="body-grid">
+              <!-- Side bar -->
+              <div class="sidebar">
+                <!-- Search Box -->
+                <section class="search">
+                  <form action="{% url 'search' %}" method="GET">
+                    <ul>
+                      <li><input type="search" name="query"></li>
+                      <li><button class="search-button" type="submit">Search</button></li>
+                    </ul>
+                  </form>
+                </section>
+                <!-- Search By Group -->
+                <div>
+                  <h3>Filter Minerals by Group</h3>
+                  <ul>
+                    {% for group in groups %}
+                      {% ifequal group nav_group %}
+                        <a class="active" href="{% url 'mineral_list_by_group' group=group %}"><li>{{ group }}</li></a>
+                      {% else %}
+                        <a href="{% url 'mineral_list_by_group' group=group %}"><li>{{ group }}</li></a>
+                      {% endifequal %}
+                    {% endfor %}
+                  </ul>
+                  <h3>Filter Minerals by Color</h3>
+                  <ul>
+                    {% for color in colors %}
+                      {% ifequal color nav_color %}
+                        <a class="active" href="{% url 'mineral_list_by_color' color=color %}"><li>{{ color }}</li></a>
+                      {% else %}
+                        <a href="{% url 'mineral_list_by_color' color=color %}"><li>{{ color }}</li></a>
+                      {% endifequal %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <nav class="letter-navigation nav-grid">
+                  <ul>
+                    <a class="{{ all }}" href="{% url 'list' %}"><li>ALL</li></a>
+                    {% for letter in alphabet %}
+                      {% if letter == nav_letter %}
+                        <a class="active" href="{% url 'mineral_list_by_letter' letter=letter %}"><li>{{ letter }}</li></a>
+                      {% elif active and letter == 'A' %}
+                        <a class="active" href="{% url 'mineral_list_by_letter' letter=letter %}"><li>{{ letter }}</li></a>
+                      {% else %}
+                        <a href="{% url 'mineral_list_by_letter' letter=letter %}"><li>{{ letter }}</li></a>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </nav>
+                {% block content %}{% endblock %}
+              </div>
+            </div>
         </div>
         <div class="minerals__random">
           <a class="minerals__anchor" href="{% url 'random' %}">Show random mineral</a>

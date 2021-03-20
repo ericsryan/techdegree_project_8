@@ -12,12 +12,23 @@
     </div>
     <div class="mineral__table-container">
         <table class="mineral__table">
-            {% for attribute in mineral.attribute_set.all %}
-            <tr>
-                <td>{{ attribute.name|title }}</td>
-                <td>{{ attribute.content }}</td>
-            </tr>
-            {% endfor %}
+            {% if mineral.category %}<tr><td>Category</td><td>{{ mineral.category }}</td></tr>{% endif %}
+            {% if mineral.group %}<tr><td>Group</td><td>{{ mineral.group }}</td></tr>{% endif %}
+            {% if mineral.formula %}<tr><td>Formula</td><td>{{ mineral.formula }}</td></tr>{% endif %}
+            {% if mineral.strunz_classification %}<tr><td>Strunz Classification</td><td>{{ mineral.strunz_classification }}</td></tr>{% endif %}
+            {% if mineral.crystal_system %}<tr><td>Crystal System</td><td>{{ mineral.crystal_system }}</td></tr>{% endif %}
+            {% if mineral.mohs_scale_hardness %}<tr><td>Mohs Scale Hardness</td><td>{{ mineral.mohs_scale_hardness }}</td></tr>{% endif %}
+            {% if mineral.luster %}<tr><td>Luster</td><td>{{ mineral.luster }}</td></tr>{% endif %}
+            {% if mineral.color %}<tr><td>Color</td><td>{{ mineral.color }}</td></tr>{% endif %}
+            {% if mineral.specific_gravity %}<tr><td>Specific Gravity</td><td>{{ mineral.specific_gravity }}</td></tr>{% endif %}
+            {% if mineral.cleavage %}<tr><td>Cleavage</td><td>{{ mineral.cleavage }}</td></tr>{% endif %}
+            {% if mineral.diaphaneity %}<tr><td>Diaphaneity</td><td>{{ mineral.diaphaneity }}</td></tr>{% endif %}
+            {% if mineral.crystal_habit %}<tr><td>Crystal Habit</td><td>{{ mineral.crystal_habit }}</td></tr>{% endif %}
+            {% if mineral.streak %}<tr><td>Streak</td><td>{{ mineral.streak }}</td></tr>{% endif %}
+            {% if mineral.optical_properties %}<tr><td>Optical Properties</td><td>{{ mineral.optical_properties }}</td></tr>{% endif %}
+            {% if mineral.refractive_index %}<tr><td>Refractive Index</td><td>{{ mineral.refractive_index }}</td></tr>{% endif %}
+            {% if mineral.unit_cell %}<tr><td>Unit Cell</td><td>{{ mineral.unit_cell }}</td></tr>{% endif %}
+            {% if mineral.crystal_symmetry %}<tr><td>Crystal Symmetry</td><td>{{ mineral.crystal_symmetry }}</td></tr>{% endif %}
         </table>
     </div>
 </div>
