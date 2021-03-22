@@ -76,9 +76,10 @@ class MineralViewsTests(TestCase):
         self.assertTemplateUsed(resp, 'minerals/mineral_list.html')
 
     def test_search_minerals_view(self):
-        resp = self.client.get(reverse('search'), {'query': 'blue'})
+        resp = self.client.get(reverse('search'), {'query': 'Test'})
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, 'minerals/mineral_list.html')
+        self.assertContains(resp, self.mineral.name)
 
 
 if __name__ == '__main__':

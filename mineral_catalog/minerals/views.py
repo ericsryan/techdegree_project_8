@@ -66,6 +66,7 @@ def mineral_list_by_letter(request, letter):
 
 
 def search_minerals(request):
+    """Search the entire mineral database by search term."""
     term = request.GET.get('query')
     minerals = Mineral.objects.filter(
         Q(name__icontains=term)|
