@@ -31,7 +31,7 @@ def save_minerals_to_db(apps, schema_editor):
             optical_properties = mineral.get('optical properties', ''),
             refractive_index = mineral.get('refractive index', ''),
             unit_cell = mineral.get('unit cell', ''),
-            crystal_symmetry = mineral.get('crystal symmetry', '')
+            crystal_symmetry = mineral.get('crystal symmetry', ''),
         ).save()
 
 class Migration(migrations.Migration):
