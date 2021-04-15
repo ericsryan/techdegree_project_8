@@ -28,10 +28,6 @@ class ModelTests(TestCase):
         self.assertEqual(mineral.slug, 'test')
         self.assertEqual(mineral2.slug, 'test-2')
 
-    def test_model_str(self):
-        mineral = Mineral.objects.get(caption="Hi")
-        self.assertEqual(mineral.__str__(), mineral.name)
-
 
 class MineralViewsTests(TestCase):
     def setUp(self):
@@ -46,7 +42,6 @@ class MineralViewsTests(TestCase):
         self.assertIn(self.mineral, resp.context['minerals'])
         self.assertContains(resp, self.mineral.name)
         self.assertTemplateUsed(resp, 'minerals/mineral_list.html')
-        self.assertContains(resp, self.mineral.name)
 
     def test_mineral_detail_view(self):
         resp = self.client.get(reverse('detail',
