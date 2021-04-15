@@ -1,1 +1,1 @@
-web: gunicorn mineral_catalog.wsgi --log-file -
+web: gunicorn mineral_catalog.mineral_catalog.wsgi --log-file -
