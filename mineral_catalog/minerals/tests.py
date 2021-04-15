@@ -46,7 +46,6 @@ class MineralViewsTests(TestCase):
         self.assertIn(self.mineral, resp.context['minerals'])
         self.assertContains(resp, self.mineral.name)
         self.assertTemplateUsed(resp, 'minerals/mineral_list.html')
-        self.assertContains(resp, self.mineral.name)
 
     def test_mineral_detail_view(self):
         resp = self.client.get(reverse('detail',
