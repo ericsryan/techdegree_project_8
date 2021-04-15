@@ -28,10 +28,6 @@ class ModelTests(TestCase):
         self.assertEqual(mineral.slug, 'test')
         self.assertEqual(mineral2.slug, 'test-2')
 
-    def test_model_str(self):
-        mineral = Mineral.objects.get(caption="Hi")
-        self.assertEqual(mineral.__str__(), mineral.name)
-
 
 class MineralViewsTests(TestCase):
     def setUp(self):
