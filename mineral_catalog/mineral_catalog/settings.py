@@ -25,7 +25,7 @@ SECRET_KEY = '$mg1qqrbzu-akt)c87+$3!t$ax$ria%h2!d2loc#$c^i6f6623'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ericsryan-mineral-catalog.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
