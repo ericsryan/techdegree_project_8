@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 # Django updated to version 3.1.7
 import os
 
+import warnings
+
 def get_env_variable(var_name):
     try:
         return os.environ[var_name]
