@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('name', models.CharField(max_length=255)),
                 ('slug', models.SlugField(max_length=255, primary_key=True, serialize=False, unique=True)),
-                ('caption', models.CharField(max_length=300)),
+                ('caption', models.TextField()),
                 ('category', models.CharField(blank=True, max_length=300, null=True)),
                 ('group', models.CharField(blank=True, max_length=300, null=True)),
                 ('formula', models.CharField(blank=True, max_length=300, null=True)),
