@@ -1,4 +1,4 @@
-# techdegree_project_6
+# techdegree_project_8
 _________________________________________________________________
 
 Techdegree Project 8-Mineral Catalog (w/ Search)
